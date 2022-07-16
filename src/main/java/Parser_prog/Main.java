@@ -76,7 +76,6 @@ public class Main {
                     state.setState(State.writing);
                 }
                 case writing -> {
-                    System.out.println("\nRunning...");
                     command = input.replaceAll("[\n\t]", "")
                             .replaceAll("[()]", " ").split("[ ,]");
                     switch (command[0]) {
