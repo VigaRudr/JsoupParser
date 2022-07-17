@@ -16,12 +16,21 @@
 
 package jsoupParser;
 
+import java.util.Scanner;
+
 /**
  * Webpage parsing console app.
  */
 public class Main {
     public static void main(String[] args) {
         Handler handler;
+
+        if (args.length == 0)
+        {
+            Scanner input = new Scanner(System.in);
+            System.out.println("Input command...");
+            args = input.nextLine().split(" ");
+        }
 
         if (args.length == 3) {
             handler = new Handler(
