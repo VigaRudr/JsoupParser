@@ -1,5 +1,8 @@
 package jsoupParser;
 
+/**
+ * Save current page from url
+ */
 public class SavePage implements Command{
     final Webpage webpage = new Webpage();
     final String url;

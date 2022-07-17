@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"Parser_prog","l":"Main"},{"p":"Parser_prog","l":"Parser"},{"p":"Parser_prog","l":"Main.Program_State"},{"p":"Parser_prog","l":"Main.State"},{"p":"Parser_prog","l":"Webpage"},{"p":"Parser_prog","l":"Website"}];updateSearchResults();

@@ -12,7 +12,11 @@ import java.util.regex.Pattern;
  * A receiver class for interacting with a web page using the available commands.
  */
 public class Webpage {
-
+    /**
+     * Get keyword number from webpage url
+     * @param url - webpage link
+     * @param keyword - searching keyword
+     */
     public void getKeywordCount(String url, String keyword) {
         Website website = new Website(url);
 
@@ -28,6 +32,10 @@ public class Webpage {
         System.out.println("Keyword (" + keyword + ") found " + keyword_count + " times!");
     }
 
+    /**
+     * Save html-code of page in default folder
+     * @param url - link of webpage
+     */
     public void savePage(String url) {
         Website website = new Website(url);
 
@@ -42,12 +50,15 @@ public class Webpage {
         }
     }
 
+    /**
+     * Show list of available commands
+     */
     public void help() {
         System.out.println(
                    """
                    Here the list of available commands:
-                   - getKeywordCount;
-                   - savePage;
+                   - getKeywordCount(String url, String keyword);
+                   - savePage(String url);
                    - help;
                    - aboutMe.
                    To see more about specific command type help(command)
@@ -55,6 +66,9 @@ public class Webpage {
                    """);
     }
 
+    /**
+     * Print app information
+     */
      public void aboutMe() {
          System.out.println(
                  """                         

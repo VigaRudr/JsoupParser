@@ -1,5 +1,9 @@
 package jsoupParser;
 
+/**
+ * Command invoker
+ * Multiple constructors for evade null pointer exception
+ */
 public class Handler {
     Command getKeywordCount;
     Command savePage;
