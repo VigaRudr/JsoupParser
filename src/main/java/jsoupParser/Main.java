@@ -16,8 +16,6 @@
 
 package jsoupParser;
 
-import java.util.Scanner;
-
 /**
  * Webpage parsing console app.
  */
