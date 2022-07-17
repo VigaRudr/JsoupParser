@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"jsoupParser","l":"AboutMe"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"jsoupParser","l":"Command"},{"p":"jsoupParser","l":"GetKeywordCount"},{"p":"jsoupParser","l":"Handler"},{"p":"jsoupParser","l":"Help"},{"p":"jsoupParser","l":"Main"},{"p":"jsoupParser","l":"SavePage"},{"p":"jsoupParser","l":"Webpage"}];updateSearchResults();
