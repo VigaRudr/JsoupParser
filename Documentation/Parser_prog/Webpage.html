@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <meta name="dc.created" content="2022-07-16">
-<meta name="description" content="declaration: package: Parser_prog, class: Webpage">
+<meta name="description" content="declaration: package: jsoupParser, class: Webpage">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../script-dir/jquery-ui.min.css" title="Style">
@@ -86,21 +86,21 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">Parser_prog</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">jsoupParser</a></div>
 <h1 title="Class Webpage" class="title">Class Webpage</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">Parser_prog.Webpage</div>
+<div class="inheritance">jsoupParser.Webpage</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="Parser.html" title="interface in Parser_prog">Parser</a></code></dd>
+<dd><code><a href="Parser.html" title="interface in jsoupParser">Parser</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Webpage</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/18/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></span></div>
+implements <a href="Parser.html" title="interface in jsoupParser">Parser</a></span></div>
 <div class="block">A class for interacting with a web page using the available commands.</div>
 </section>
 <section class="summary">
@@ -114,7 +114,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>(package private) <a href="Website.html" title="class in Parser_prog">Website</a></code></div>
+<div class="col-first even-row-color"><code>(package private) <a href="Website.html" title="class in jsoupParser">Website</a></code></div>
 <div class="col-second even-row-color"><code><a href="#website" class="member-name-link">website</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -185,7 +185,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <li>
 <section class="detail" id="website">
 <h3>website</h3>
-<div class="member-signature"><span class="return-type"><a href="Website.html" title="class in Parser_prog">Website</a></span>&nbsp;<span class="element-name">website</span></div>
+<div class="member-signature"><span class="return-type"><a href="Website.html" title="class in jsoupParser">Website</a></span>&nbsp;<span class="element-name">website</span></div>
 </section>
 </li>
 </ul>
@@ -219,7 +219,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <div class="block">Returns a keyword match number</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="Parser.html#getKeywordCount(java.lang.String,java.lang.String)">getKeywordCount</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in Parser_prog">Parser</a></code></dd>
+<dd><code><a href="Parser.html#getKeywordCount(java.lang.String,java.lang.String)">getKeywordCount</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in jsoupParser">Parser</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>url</code> - – URL of the Website</dd>
 <dd><code>keyword</code> - – searching value (must be String)</dd>
@@ -236,7 +236,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <div class="block">Displays list of avaible commands.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="Parser.html#help()">help</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in Parser_prog">Parser</a></code></dd>
+<dd><code><a href="Parser.html#help()">help</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in jsoupParser">Parser</a></code></dd>
 </dl>
 </section>
 </li>
@@ -248,7 +248,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <div class="block">Displays information about specific command</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="Parser.html#help(java.lang.String)">help</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in Parser_prog">Parser</a></code></dd>
+<dd><code><a href="Parser.html#help(java.lang.String)">help</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in jsoupParser">Parser</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>command</code> - that we interested</dd>
 </dl>
@@ -262,7 +262,7 @@ implements <a href="Parser.html" title="interface in Parser_prog">Parser</a></sp
 <div class="block">Displays the information about the program.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="Parser.html#aboutMe()">aboutMe</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in Parser_prog">Parser</a></code></dd>
+<dd><code><a href="Parser.html#aboutMe()">aboutMe</a></code>&nbsp;in interface&nbsp;<code><a href="Parser.html" title="interface in jsoupParser">Parser</a></code></dd>
 </dl>
 </section>
 </li>
