@@ -8,22 +8,17 @@ import java.util.Map;
  * Multiple constructors for evade null pointer exception
  */
 public class Handler {
-    Map<Integer, Command> map = new HashMap<>();
+    Map<String, Command> map = new HashMap<>();
 
     public Handler(Command getKeywordCount, Command savePage, Command help, Command aboutMe) {
-        map.put(getHash("getKeywordCount"), getKeywordCount);
-        map.put(getHash("savePage"), savePage);
-        map.put(getHash("help"), help);
-        map.put(getHash("aboutMe"), aboutMe);
-    }
-
-    private int getHash(String command) {
-        int hash = command.charAt(0) - 'a';
-        return hash % 5;
+        map.put("getKeywordCount", getKeywordCount);
+        map.put("savePage", savePage);
+        map.put("help", help);
+        map.put("aboutMe", aboutMe);
     }
 
     public void run(String command) {
-        map.get(getHash(command)).execute();
+        map.get(command).execute();
     }
 
 }

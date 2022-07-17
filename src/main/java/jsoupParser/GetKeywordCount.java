@@ -4,7 +4,7 @@ package jsoupParser;
  * Get keyword number on page
  */
 public class GetKeywordCount implements Command{
-    final Webpage webpage = new Webpage();
+    final ControlWebsite controlWebsite = new ControlWebsite();
     final String url;
     final String keyword;
 
@@ -20,6 +20,6 @@ public class GetKeywordCount implements Command{
 
     @Override
     public void execute() {
-        webpage.getKeywordCount(this.url, this.keyword);
+        controlWebsite.getKeywordCount(this.url, this.keyword);
     }
 }

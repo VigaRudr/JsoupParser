@@ -4,9 +4,9 @@ package jsoupParser;
  * Show list of available commands
  */
 public class Help implements Command{
-    final Webpage webpage = new Webpage();
+    final ControlWebsite controlWebsite = new ControlWebsite();
     @Override
     public void execute() {
-        webpage.help();
+        controlWebsite.help();
     }
 }

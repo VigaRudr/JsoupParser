@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * A receiver class for interacting with a web page using the available commands.
  */
-public class Webpage {
+public class ControlWebsite {
     /**
      * Get keyword number from webpage url
      * @param url - webpage link

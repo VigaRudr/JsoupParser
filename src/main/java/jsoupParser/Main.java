@@ -23,13 +23,11 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
+        if (args.length == 0)
+            throw new IllegalArgumentException("Error: the command is not specified, type help for reference.");
+
         Handler handler;
         String[] command = new String[3];
-
-        Scanner input = new Scanner(System.in);
-        System.out.println("Input command...");
-        args = input.nextLine().split(" ");
-
         System.arraycopy(args, 0, command, 0, args.length);
 
         handler = new Handler(
