@@ -1,44 +1,29 @@
 package jsoupParser;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Command invoker
  * Multiple constructors for evade null pointer exception
  */
 public class Handler {
-    Command getKeywordCount;
-    Command savePage;
-    final Command help;
-    final Command aboutMe;
+    Map<Integer, Command> map = new HashMap<>();
 
     public Handler(Command getKeywordCount, Command savePage, Command help, Command aboutMe) {
-        this.getKeywordCount = getKeywordCount;
-        this.savePage = savePage;
-        this.help = help;
-        this.aboutMe = aboutMe;
+        map.put(getHash("getKeywordCount"), getKeywordCount);
+        map.put(getHash("savePage"), savePage);
+        map.put(getHash("help"), help);
+        map.put(getHash("aboutMe"), aboutMe);
     }
 
-    public Handler(Command savePage, Command help, Command aboutMe) {
-        this.savePage = savePage;
-        this.help = help;
-        this.aboutMe = aboutMe;
+    private int getHash(String command) {
+        int hash = command.charAt(0) - 'a';
+        return hash % 5;
     }
 
-    public Handler(Command help, Command aboutMe) {
-        this.help = help;
-        this.aboutMe = aboutMe;
-    }
-
-    public void getKeywordCount() {
-        getKeywordCount.execute();
-    }
-    public void savePage() {
-        savePage.execute();
-    }
-    public void help() {
-        help.execute();
-    }
-    public void aboutMe() {
-        aboutMe.execute();
+    public void run(String command) {
+        map.get(getHash(command)).execute();
     }
 
 }

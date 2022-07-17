@@ -24,45 +24,25 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Handler handler;
+        String[] command = new String[3];
 
-        if (args.length == 0)
-        {
-            Scanner input = new Scanner(System.in);
-            System.out.println("Input command...");
-            args = input.nextLine().split(" ");
-        }
+        Scanner input = new Scanner(System.in);
+        System.out.println("Input command...");
+        args = input.nextLine().split(" ");
 
-        if (args.length == 3) {
-            handler = new Handler(
-                    new GetKeywordCount(args[1], args[2]),
-                    new SavePage(args[1]),
-                    new Help(),
-                    new AboutMe()
-            );
-        } else if (args.length == 2) {
-            handler = new Handler(
-                    new SavePage(args[1]),
-                    new Help(),
-                    new AboutMe()
-            );
-        } else {
-            handler = new Handler(
-                    new Help(),
-                    new AboutMe()
-            );
-        }
+        System.arraycopy(args, 0, command, 0, args.length);
+
+        handler = new Handler(
+                new GetKeywordCount(command[1], command[2]),
+                new SavePage(command[1]),
+                new Help(),
+                new AboutMe()
+        );
 
         System.out.println("Command:");
         for (String arg : args)
             System.out.println(arg);
 
-        switch (args[0]) {
-            case "getKeywordCount" -> handler.getKeywordCount();
-            case "savePage" -> handler.savePage();
-            case "help" -> handler.help();
-            case "aboutMe" -> handler.aboutMe();
-            default -> System.out.println("Wrong command");
-        }
-
+        handler.run(command[0]);
     }
 }
