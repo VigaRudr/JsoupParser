@@ -39,10 +39,6 @@ public class Main {
                 new AboutMe()
         );
 
-        System.out.println("Command:");
-        for (String arg : args)
-            System.out.println(arg);
-
         handler.run(command[0]);
     }
 }
