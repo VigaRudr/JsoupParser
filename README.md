@@ -23,6 +23,12 @@ Using Java 18
 Using
 --------
 execute - shaded.jar file using java with command and arguments (if necessary)
+Commands:
+- `getKeywordCount(url, keyword)` - Search [keyword] in [url] and return 
+number of matches
+- `savePage(url)` - save webpage from [url] in the root folder
+- `help` - show list of avaible commands
+- `aboutMe` - show app info
 
 Licensing
 ---------
