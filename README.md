@@ -6,7 +6,7 @@ The Latest Version
 ------------------
 Can be found in master branch of this project.
 
-Current version: 1.1
+Current version: 1.1-SNAPSHOT
 
 Documentation
 -------------
