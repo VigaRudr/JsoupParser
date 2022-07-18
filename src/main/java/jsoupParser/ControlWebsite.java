@@ -103,7 +103,7 @@ public class ControlWebsite {
         /**
          * Read html code of the webpage and stores it.
          */
-        public void setHtml_code() {
+        public void setHtmlCode() {
             try {
                 this.html_code = Jsoup.connect(this.url).maxBodySize(0).get();
             } catch (Exception e) {
@@ -117,14 +117,14 @@ public class ControlWebsite {
          */
         public Document getHtml_code() {
             if (this.html_code == null) {
-                setHtml_code();
+                setHtmlCode();
             }
             return this.html_code;
         }
 
         public String getTitle()  {
             if (this.html_code == null)
-                setHtml_code();
+                setHtmlCode();
             return this.html_code.title();
         }
 
@@ -134,7 +134,7 @@ public class ControlWebsite {
          */
         public String getBody() {
             if (this.html_code == null)
-                setHtml_code();
+                setHtmlCode();
             return  this.html_code.body().text();
         }
     }
