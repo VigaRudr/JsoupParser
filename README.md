@@ -1,11 +1,6 @@
 # JsoupParser
 Url parser using Jsoup
 
-# Packaging:
-`mvn package`
-
-# Execution:
-`java -jar .\target\.jar command + input data `
 # Avaible commands:
 ## getKeywordCount(url, keyword)
 
