@@ -18,6 +18,8 @@ Packages a project using Maven
 
 Create one jar file with dependencies inside using maven-shade-plugin in \target
 
+Using Java 18
+
 Using
 --------
 execute - shaded.jar file using java with command and arguments (if necessary)
