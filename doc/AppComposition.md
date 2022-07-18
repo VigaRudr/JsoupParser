@@ -23,29 +23,32 @@ Contains a Website object
 Provides interaction with that object
 
 Methods:
-- getKeywordCount(String url, String keyword)
-- - Get keyword number from webpage url
-- - String url - webpage link
-- - String keyword - searched keyword
 
-# - savePage(String url)
-# - - Save html-code of page in default folder
-# - - String url - link of webpage
+`getKeywordCount(String url, String keyword)`
+- Get keyword number from webpage url
+- String url - webpage link
+- String keyword - searched keyword
 
-# - help()
-# - - Show list of available commands
+`savePage(String url)`
+- Save html-code of page in default folder
+- String url - link of webpage
 
-# - aboutMe()
-# - - Print app information
+`help()`
+- Show list of available commands
 
-# Inner classes:
-# - Website
-# - - Website description
-# - - Stores url, title and html code of webpage.
-# - - Interacts with the url using Jsoup
+`boutMe()`
+- Print app information
 
-class GetKeywordCount(String url, String keyword)
-class savePage(String url)
-class help
-class aboutMe
-# External classes of ControlWebsite function via command
+## Inner classes:
+
+ `Website`
+- Website description
+- Stores url, title and html code of webpage.
+- Interacts with the url using Jsoup
+
+
+## class GetKeywordCount(String url, String keyword)
+## class savePage(String url)
+## class help
+## class aboutMe
+External classes of ControlWebsite function via command
