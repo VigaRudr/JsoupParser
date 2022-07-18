@@ -1,26 +1,33 @@
-# JsoupParser
-Url parser using Jsoup
+What is it?
+-----------
+Jsoup Parser is a parser designed to analyze a webpage and manipulate it.
 
-# Avaible commands:
-## getKeywordCount(url, keyword)
+The Latest Version
+------------------
+Can be found in master branch of this project.
 
- *Shows you keyword count on webpage* 
-```
-String url - link of the webpage
-String keyword - searched keyword
-```
+Current version: 1.1-SNAPSHOT
 
-## savePage(url)
+Documentation
+-------------
+\doc\AppComposition
 
- *Saves webpage by url*
- ```
-String url - link of the webpage
-```  
+Packaging
+---------
+Packages a project using Maven
 
-## help()
+Create one jar file with dependencies inside using maven-shade-plugin in \target
 
-*Show avaible commands list*
- 
-## aboutMe()
+Using
+--------
+execute - shaded.jar file using java with command and arguments (if necessary)
 
-*Show app info*
+Licensing
+---------
+Author: Viga Rudr
+
+Used: Using Jsoup library. (https://jsoup.org) 
+
+Contacts
+--------
+vigarudr.work@gmail.com
