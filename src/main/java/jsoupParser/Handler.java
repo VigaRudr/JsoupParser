@@ -5,7 +5,6 @@ import java.util.Map;
 
 /**
  * Command invoker
- * Multiple constructors for evade null pointer exception
  */
 public class Handler {
     Map<String, Command> map = new HashMap<>();

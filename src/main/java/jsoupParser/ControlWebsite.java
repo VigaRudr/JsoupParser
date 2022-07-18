@@ -15,7 +15,7 @@ public class ControlWebsite {
     /**
      * Get keyword number from webpage url
      * @param url - webpage link
-     * @param keyword - searching keyword
+     * @param keyword - searched keyword
      */
     public void getKeywordCount(String url, String keyword) {
         Website website = new Website(url);
@@ -73,7 +73,7 @@ public class ControlWebsite {
          System.out.println(
                  """                         
                  Keyword counting parser.
-                 Version: 1.1
+                 Version: 1.1-SNAPSHOT
                  Author: es.sadovnikov
                  """);
      }
@@ -102,7 +102,6 @@ public class ControlWebsite {
 
         /**
          * Read html code of the webpage and stores it.
-         * Using Jsoup library. (https://jsoup.org)
          */
         public void setHtml_code() {
             try {
