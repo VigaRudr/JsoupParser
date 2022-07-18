@@ -1,25 +1,32 @@
 The composition of the application
 ----------------------------------
 Main(String[] argv) 
-# The function provides console interaction with app.
+-------------------
+The function provides console interaction with app.
 
 class Handler
-# Command invoker
-# Contains hash table to interact with WebsiteControl commands
+------------
+Command invoker
+
+Contains hash table to interact with WebsiteControl commands
 
 interface Command
-# Just implements the command interface
+-----------------
+Just implements the command interface
 
 class ControlWebsite
-# A receiver class for interacting with a web page using the available commands.
-# Contains a Website object
-# Provides interaction with that object
+--------------------
+A receiver class for interacting with a web page using the available commands.
 
-# Methods:
-# - getKeywordCount(String url, String keyword)
-# - - Get keyword number from webpage url
-# - - String url - webpage link
-# - - String keyword - searched keyword
+Contains a Website object
+
+Provides interaction with that object
+
+Methods:
+- getKeywordCount(String url, String keyword)
+- - Get keyword number from webpage url
+- - String url - webpage link
+- - String keyword - searched keyword
 
 # - savePage(String url)
 # - - Save html-code of page in default folder
