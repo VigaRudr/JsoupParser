@@ -1,17 +1,10 @@
 /*
  * TODO:
- *  Парсинг сайта.
- *   На вход подается url и ключевое слово.
- *   На выходе получаем числовое значение обозначающее количество раз встречающихся на заданной странице.
- *  Дополнительный функционал:
- *   Возможность сохранения документа, то есть заданной страницы.
- *   Вывод help.
- *   Вывод aboutMe.
- *  Дополнительные требования:
- *   Использование шаблонов проектирования.
- *   Использовать систему контроля версий.
- *   Использовать пакетный менеджер и сброщик проекта.
- *   Описать readme в которм будет описан процесс сборки запуска и использования.
+ *  Реализовать Базу данных с записями о страницах которые запрашивались и сами страницы и слова по которым был поиск
+ *  - Сохранённую страницу хранить в бд в виде ссылки на файл на диске
+ *  - Использовать jbdc
+ *  - СУБД - sqlite
+ *  Обновить команду savePage(), чтобы была возможность указать куда сохранять
  * */
 
 package jsoupParser;
@@ -21,6 +14,7 @@ package jsoupParser;
  */
 public class Main {
     public static void main(String[] args) {
+
         if (args.length == 0)
             throw new IllegalArgumentException("Error: the command is not specified, type help for reference.");
 
@@ -30,11 +24,14 @@ public class Main {
 
         handler = new Handler(
                 new GetKeywordCount(command[1], command[2]),
-                new SavePage(command[1]),
+                new SavePage(command[1], command[2]),
                 new Help(),
                 new AboutMe()
         );
 
         handler.run(command[0]);
+
+
+
     }
 }

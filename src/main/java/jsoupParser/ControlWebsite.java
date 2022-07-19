@@ -5,6 +5,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,22 +31,34 @@ public class ControlWebsite {
         }
 
         System.out.println("Keyword (" + keyword + ") found " + keyword_count + " times!");
+
+        try {
+            DatabaseControl databaseControl = new DatabaseControl();
+            databaseControl.send(url, keyword, keyword_count);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
      * Save html-code of page in default folder
      * @param url - link of webpage
      */
-    public void savePage(String url) {
+    public void savePage(String url, String path) {
         Website website = new Website(url);
+        if (path != null)
+            path += website.getTitle() + ".html";
+        else
+            path = website.getTitle() + ".html";
 
-        String path = website.getTitle() + ".html";
         try {
             FileWriter fw = new FileWriter(path, StandardCharsets.UTF_8);
             BufferedWriter writer = new BufferedWriter(fw);
             writer.write(website.getHtml_code().outerHtml());
             System.out.println("Saved page stores in: " + path);
-        } catch (IOException e) {
+            DatabaseControl databaseControl = new DatabaseControl();
+            databaseControl.updatePath(path, url);
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
