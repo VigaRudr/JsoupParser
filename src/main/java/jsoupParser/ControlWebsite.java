@@ -46,13 +46,23 @@ public class ControlWebsite {
      */
     public void savePage(String url, String path) {
         Website website = new Website(url);
-        if (path != null)
-            path += website.getTitle() + ".html";
-        else
-            path = website.getTitle() + ".html";
+
+        File directory = new File(path);
+        File savedPage = new File(directory.getPath() + "\\" + website.getTitle() + ".html");
+
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+        if (!savedPage.exists()) {
+            try {
+                savedPage.createNewFile();
+            } catch (IOException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         try {
-            FileWriter fw = new FileWriter(path, StandardCharsets.UTF_8);
+            FileWriter fw = new FileWriter(savedPage, StandardCharsets.UTF_8);
             BufferedWriter writer = new BufferedWriter(fw);
             writer.write(website.getHtml_code().outerHtml());
             System.out.println("Saved page stores in: " + path);

@@ -1,6 +1,7 @@
 package jsoupParser;
 
 import javax.xml.crypto.Data;
+import java.io.File;
 import java.sql.*;
 
 public class DatabaseControl {
@@ -33,14 +34,17 @@ public class DatabaseControl {
         db.statement.executeUpdate(query);
     }
 
-    class Database {
+    static class Database {
         String tableName = "JsoupParserTable";
         String path = "database\\JsoupParser.db";
         Connection connection;
         Statement statement;
+        File folder = new File("database");
 
         public Database() throws SQLException {
-            db = new Database();
+            if (!folder.exists())
+                folder.mkdir();
+
             this.connection = DriverManager.getConnection("jdbc:sqlite:" + this.path);
             this.statement = this.connection.createStatement();
 
