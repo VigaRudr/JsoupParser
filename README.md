@@ -28,7 +28,10 @@ Licensing
 ---------
 Author: Viga Rudr
 
-Used: Using Jsoup library. (https://jsoup.org) 
+Used:
+- Jsoup library. (https://jsoup.org) 
+
+- SQLite JBDC Driver (https://www.sqlite.org/java/raw/doc/overview.html?name=0a704f4b7294a3d63e6ea2b612daa3b997c4b5f1)
 
 Contacts
 --------
