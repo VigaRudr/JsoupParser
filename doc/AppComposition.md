@@ -28,15 +28,16 @@ Methods:
 - Get keyword number from webpage url
 - String url - webpage link
 - String keyword - searched keyword
+- send path to database column
 
-`savePage(String url)`
-- Save html-code of page in default folder
+`savePage(String url, String path)`
+- Save html-code of page in [path]
 - String url - link of webpage
 
 `help()`
 - Show list of available commands
 
-`boutMe()`
+`AboutMe()`
 - Print app information
 
 ## Inner classes:
@@ -52,3 +53,45 @@ Methods:
 ## class help
 ## class aboutMe
 External classes of ControlWebsite function via command
+
+class DatabaseControl
+---------------------
+Class for interacting with databese using JDBC Driver
+and SQLite DBMS
+
+- Database path: /database/JsoupParser.db
+- table name is [JsoupParserTable]
+- Values are:
+   ```
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    URL VARCHAR(100),
+    Keyword VARCHAR(50),
+    SavePath VARCHAR(50));
+    ```
+
+Contains a Database object
+
+Methods:
+
+`send(String url, String keyword)`
+- send [url] and searching [keyword] in database
+
+`updatePath(String path, String url)`
+- update empty data of saved file [path] in database
+
+`delete(String condition)`
+- for future use 
+- delete row from database if [condition]
+
+`clear()`
+- for future use
+- clear database
+
+## Inner classes:
+
+ `Database`
+- Database description
+- Stores tableName, path.
+- Opens a database connection using JDBC
+- Creates statement for interact with database
+- Creates JsoupParserTable if not exists
