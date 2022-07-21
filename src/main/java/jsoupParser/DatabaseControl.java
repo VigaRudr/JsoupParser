@@ -1,6 +1,5 @@
 package jsoupParser;
 
-import javax.xml.crypto.Data;
 import java.io.File;
 import java.sql.*;
 
@@ -10,29 +9,33 @@ public class DatabaseControl {
     public DatabaseControl() throws SQLException {
     }
 
-    public void send(String url, String keyword, int matches) throws SQLException {
-        String query =
-                "INSERT INTO " + db.tableName + " (URL, Keyword) " +
-                "VALUES ('" + url + "', '" + keyword + "')";
+    public void read(String readParameter, String tableName, String condition) throws SQLException {
+        String query = "SELECT " + readParameter + " FROM " + tableName;
+        if (null != condition) {
+            query += " WHERE " + condition;
+        }
+        db.statement.executeQuery(query);
+    }
+
+    public void update(String tableName, String setParameter, String condition) throws SQLException {
+        String query = "UPDATE " + tableName + " SET " + setParameter + " WHERE " + condition;
         db.statement.executeUpdate(query);
     }
 
-    public void updatePath(String path, String url) throws SQLException {
-        String query = "UPDATE " + db.tableName +
-                " SET SavePath = '" + path +
-                "' WHERE URL = '" + url + "' AND SavePath IS NULL";
-        db.statement.executeUpdate(query);
+    public void delete(String tableName, String condition) throws SQLException {
+        String query = "DELETE FROM " + tableName;
+        if (null != condition)
+            query += " WHERE " + condition;
+        int recordsNum = db.statement.executeUpdate(query);
+        db.recordCount -= recordsNum;
     }
 
-    public void delete(String condition) throws SQLException {
-        String query = "DELETE FROM "+ db.tableName + " WHERE " + condition;
+    public void insert(String tableName, String columnNames, String values) throws SQLException{
+        String query = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
         db.statement.executeUpdate(query);
+        db.recordCount++;
     }
 
-    public void clear() throws SQLException {
-        String query = "DELETE FROM "+ db.tableName;
-        db.statement.executeUpdate(query);
-    }
 
     static class Database {
         String tableName = "JsoupParserTable";
@@ -40,6 +43,7 @@ public class DatabaseControl {
         Connection connection;
         Statement statement;
         File folder = new File("database");
+        int recordCount;
 
         public Database() throws SQLException {
             if (!folder.exists())
@@ -55,6 +59,10 @@ public class DatabaseControl {
                     "    SavePath VARCHAR(50))";
 
             this.statement.execute(query);
+
+            ResultSet res = this.statement.executeQuery("SELECT * FROM " + this.tableName);
+            while (res.next())
+                recordCount++;
         }
     }
 }

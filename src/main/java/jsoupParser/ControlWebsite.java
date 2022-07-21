@@ -13,11 +13,6 @@ import java.util.regex.Pattern;
  * A receiver class for interacting with a web page using the available commands.
  */
 public class ControlWebsite {
-    /**
-     * Get keyword number from webpage url
-     * @param url - webpage link
-     * @param keyword - searched keyword
-     */
     public void getKeywordCount(String url, String keyword) {
         Website website = new Website(url);
 
@@ -34,16 +29,13 @@ public class ControlWebsite {
 
         try {
             DatabaseControl databaseControl = new DatabaseControl();
-            databaseControl.send(url, keyword, keyword_count);
+            databaseControl.insert(databaseControl.db.tableName, "URL, Keyword",
+                    "'" + url + "'" + "'" + keyword + "'");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    /**
-     * Save html-code of page in default folder
-     * @param url - link of webpage
-     */
     public void savePage(String url, String path) {
         Website website = new Website(url);
 
@@ -66,22 +58,32 @@ public class ControlWebsite {
             BufferedWriter writer = new BufferedWriter(fw);
             writer.write(website.getHtml_code().outerHtml());
             System.out.println("Saved page stores in: " + path);
+
             DatabaseControl databaseControl = new DatabaseControl();
-            databaseControl.updatePath(path, url);
+            if (databaseControl.db.recordCount > 0) {
+                databaseControl.update(databaseControl.db.tableName,
+                        "SavePath = '" + path + "'",
+                        "URL = '" + url + "'");
+            } else {
+                databaseControl.insert(databaseControl.db.tableName,
+                        "URL, SavePath",
+                        "'" + url + "', " + "'" + path + "'");
+            }
+
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
 
-    /**
-     * Show list of available commands
-     */
     public void help() {
         System.out.println(
                    """
                    Here the list of available commands:
                    - getKeywordCount(String url, String keyword);
-                   - savePage(String url);
+                   - savePage(String url, String path);
+                   - dbUpdate(String tableName, String setParameter, String condition)
+                   - dbRead(String tableName, String readParameter, String condition)
+                   - dbDelete(String tableName, String condition)
                    - help;
                    - aboutMe.
                    To see more about specific command type help(command)
@@ -89,9 +91,6 @@ public class ControlWebsite {
                    """);
     }
 
-    /**
-     * Print app information
-     */
      public void aboutMe() {
          System.out.println(
                  """                         
@@ -106,26 +105,14 @@ public class ControlWebsite {
      * Stores url, title and html code of webpage.
      */
     static class Website {
-        /**
-         * Url of page
-         */
         final protected String url;
-        /**
-         * html code of page
-         */
         protected Document html_code;
-        /**
-         * title of page
-         */
         protected String title;
 
         public Website(String url) {
             this.url = url;
         }
 
-        /**
-         * Read html code of the webpage and stores it.
-         */
         public void setHtmlCode() {
             try {
                 this.html_code = Jsoup.connect(this.url).maxBodySize(0).get();
@@ -134,10 +121,6 @@ public class ControlWebsite {
             }
         }
 
-        /**
-         * Get html code from page
-         * @return html code in String value;
-         */
         public Document getHtml_code() {
             if (this.html_code == null) {
                 setHtmlCode();
@@ -151,10 +134,6 @@ public class ControlWebsite {
             return this.html_code.title();
         }
 
-        /**
-         * Get all text from body code in website
-         * @return String value of all text in body
-         */
         public String getBody() {
             if (this.html_code == null)
                 setHtmlCode();

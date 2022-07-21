@@ -15,7 +15,7 @@ public class Main {
             throw new IllegalArgumentException("Error: the command is not specified, type help for reference.");
 
         Handler handler;
-        String[] command = new String[3];
+        String[] command = new String[4];
         System.arraycopy(args, 0, command, 0, args.length);
 
         handler = new Handler(

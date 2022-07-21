@@ -1,5 +1,7 @@
 package jsoupParser;
 
+import java.util.Objects;
+
 /**
  * Save current page from url
  */
@@ -10,7 +12,8 @@ public class SavePage implements Command{
 
     public SavePage(String url, String path) {
         this.url = url;
-        this.path = path;
+
+        this.path = Objects.requireNonNullElse(path, "savedPages");
     }
 
     @Override
