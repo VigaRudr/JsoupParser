@@ -73,7 +73,7 @@ Contains a Database object
 
 Methods (trows SQLException):
 
-`create(String tableName, String columnNames, String values)`
+`create(String columnNames, String values)`
 - send [values] of [columnNames] in database.
 
 `read(String readParameter, String condition)`
@@ -93,3 +93,9 @@ Methods (trows SQLException):
 - Opens a database connection using JDBC
 - Creates statement for interact with database
 - Creates JsoupParserTable if not exists
+
+## class dbCreate(String columnNames, String values)
+## class dbRead(String readParameter, String condition)
+## class dbUpdate(String setParameter, String condition)
+## class dbDelete(String condition)
+External classes of DatabaseControl function via command
