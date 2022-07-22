@@ -33,7 +33,15 @@ Commands (also can use help):
 number of matches
 - `savePage(url, path)` - save webpage from [url] in the [path] folder 
 (if folder not specified, saves in ./savedPages folder)
-- `help` - show list of available commands
+- `dbCreate(String columnNames, String values)` - insert new record with [values] in 
+[columnNames] in database
+- `dbUpdate(String setParameter, String condition)` - update value of [setParameter] 
+("columnName = setName") where [condition] in database
+- `dbRead(String readParameter, String condition)` - read [readParameter] from database 
+(with [condition] if specified)
+- `dbDelete(String condition)` - delete rows with [condition] from database 
+(or clear if [condition] not specified)
+- `help` - show list of avaible commands
 - `aboutMe` - show app info
 
 Licensing
