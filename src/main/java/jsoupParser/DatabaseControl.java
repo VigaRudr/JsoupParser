@@ -9,6 +9,12 @@ public class DatabaseControl {
     public DatabaseControl() throws SQLException {
     }
 
+    public void create(String tableName, String columnNames, String values) throws SQLException{
+        String query = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
+        db.statement.executeUpdate(query);
+        db.recordCount++;
+    }
+
     public void read(String readParameter, String tableName, String condition) throws SQLException {
         String query = "SELECT " + readParameter + " FROM " + tableName;
         if (null != condition) {
@@ -29,13 +35,6 @@ public class DatabaseControl {
         int recordsNum = db.statement.executeUpdate(query);
         db.recordCount -= recordsNum;
     }
-
-    public void insert(String tableName, String columnNames, String values) throws SQLException{
-        String query = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
-        db.statement.executeUpdate(query);
-        db.recordCount++;
-    }
-
 
     static class Database {
         String tableName = "JsoupParserTable";
