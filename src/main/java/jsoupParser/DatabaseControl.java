@@ -20,7 +20,14 @@ public class DatabaseControl {
         if (null != condition) {
             query += " WHERE " + condition;
         }
-        db.statement.executeQuery(query);
+        ResultSet res = db.statement.executeQuery(query);
+        while (res.next()) {
+            System.out.println(
+                    "[id = {"+ res.getInt(1) +
+                    "}, URL = {"+ res.getString(2) +
+                    "}, Keyword = {" + res.getString(3) +
+                    "}, SavePath = {" + res.getString(4) + "}]");
+        }
     }
 
     public void update(String setParameter, String condition) throws SQLException {

@@ -33,7 +33,7 @@ Commands (also can use help):
 number of matches
 - `savePage(url, path)` - save webpage from [url] in the [path] folder 
 (if folder not specified, saves in ./savedPages folder)
-- `help` - show list of avaible commands
+- `help` - show list of available commands
 - `aboutMe` - show app info
 
 Licensing

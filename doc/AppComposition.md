@@ -56,7 +56,7 @@ External classes of ControlWebsite function via command
 
 class DatabaseControl
 ---------------------
-Class for interacting with databese using JDBC Driver
+Class for interacting with database using JDBC Driver
 and SQLite DBMS
 
 - Database path: /database/JsoupParser.db

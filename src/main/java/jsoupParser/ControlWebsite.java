@@ -30,7 +30,7 @@ public class ControlWebsite {
         try {
             DatabaseControl databaseControl = new DatabaseControl();
             databaseControl.create("URL, Keyword",
-                    "'" + url + "'" + "'" + keyword + "'");
+                    "'" + url + "' , '" + keyword + "'");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -107,7 +107,6 @@ public class ControlWebsite {
     static class Website {
         final protected String url;
         protected Document html_code;
-        protected String title;
 
         public Website(String url) {
             this.url = url;
@@ -129,15 +128,17 @@ public class ControlWebsite {
         }
 
         public String getTitle()  {
-            if (this.html_code == null)
+            if (this.html_code == null) {
                 setHtmlCode();
+            }
             return this.html_code.title();
         }
 
         public String getBody() {
-            if (this.html_code == null)
+            if (this.html_code == null) {
                 setHtmlCode();
-            return  this.html_code.body().text();
+            }
+            return this.html_code.body().text();
         }
     }
 }
