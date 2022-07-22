@@ -3,6 +3,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 !**/database/
+!**/doc/
+*.md
 *.txt
 
 ### IntelliJ IDEA ###
@@ -39,3 +41,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/doc/
