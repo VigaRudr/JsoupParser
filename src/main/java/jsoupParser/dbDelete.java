@@ -4,12 +4,9 @@ import java.sql.SQLException;
 
 public class dbDelete implements Command{
     DatabaseControl databaseControl = new DatabaseControl();
-    String tableName;
     String condition;
 
-    public dbDelete(String tableName, String condition) throws SQLException {
-        this.tableName = tableName;
-
+    public dbDelete(String condition) throws SQLException {
         if (null != condition)
             this.condition = condition;
     }
@@ -17,7 +14,7 @@ public class dbDelete implements Command{
     @Override
     public void execute() {
         try {
-            databaseControl.delete(this.tableName, this.condition);
+            databaseControl.delete(this.condition);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

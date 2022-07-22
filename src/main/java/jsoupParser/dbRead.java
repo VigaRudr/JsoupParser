@@ -4,12 +4,10 @@ import java.sql.SQLException;
 
 public class dbRead implements Command{
     DatabaseControl databaseControl = new DatabaseControl();
-    String tableName;
     String readParameter;
     String condition;
 
-    public dbRead(String tableName, String readParameter, String condition) throws SQLException {
-        this.tableName = tableName;
+    public dbRead(String readParameter, String condition) throws SQLException {
         this.readParameter = readParameter;
 
         if (null != condition)
@@ -19,7 +17,7 @@ public class dbRead implements Command{
     @Override
     public void execute() {
         try {
-            databaseControl.read(this.tableName, this.readParameter, this.condition);
+            databaseControl.read(this.readParameter, this.condition);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

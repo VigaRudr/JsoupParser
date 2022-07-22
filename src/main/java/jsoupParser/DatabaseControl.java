@@ -9,27 +9,27 @@ public class DatabaseControl {
     public DatabaseControl() throws SQLException {
     }
 
-    public void create(String tableName, String columnNames, String values) throws SQLException{
-        String query = "INSERT INTO " + tableName + " (" + columnNames + ") VALUES (" + values + ")";
+    public void create(String columnNames, String values) throws SQLException{
+        String query = "INSERT INTO " + db.tableName + " (" + columnNames + ") VALUES (" + values + ")";
         db.statement.executeUpdate(query);
         db.recordCount++;
     }
 
-    public void read(String readParameter, String tableName, String condition) throws SQLException {
-        String query = "SELECT " + readParameter + " FROM " + tableName;
+    public void read(String readParameter, String condition) throws SQLException {
+        String query = "SELECT " + readParameter + " FROM " + db.tableName;
         if (null != condition) {
             query += " WHERE " + condition;
         }
         db.statement.executeQuery(query);
     }
 
-    public void update(String tableName, String setParameter, String condition) throws SQLException {
-        String query = "UPDATE " + tableName + " SET " + setParameter + " WHERE " + condition;
+    public void update(String setParameter, String condition) throws SQLException {
+        String query = "UPDATE " + db.tableName + " SET " + setParameter + " WHERE " + condition;
         db.statement.executeUpdate(query);
     }
 
-    public void delete(String tableName, String condition) throws SQLException {
-        String query = "DELETE FROM " + tableName;
+    public void delete(String condition) throws SQLException {
+        String query = "DELETE FROM " + db.tableName;
         if (null != condition)
             query += " WHERE " + condition;
         int recordsNum = db.statement.executeUpdate(query);

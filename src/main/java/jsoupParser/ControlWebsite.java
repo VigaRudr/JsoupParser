@@ -29,7 +29,7 @@ public class ControlWebsite {
 
         try {
             DatabaseControl databaseControl = new DatabaseControl();
-            databaseControl.create(databaseControl.db.tableName, "URL, Keyword",
+            databaseControl.create("URL, Keyword",
                     "'" + url + "'" + "'" + keyword + "'");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -61,11 +61,11 @@ public class ControlWebsite {
 
             DatabaseControl databaseControl = new DatabaseControl();
             if (databaseControl.db.recordCount > 0) {
-                databaseControl.update(databaseControl.db.tableName,
+                databaseControl.update(
                         "SavePath = '" + path + "'",
                         "URL = '" + url + "'");
             } else {
-                databaseControl.create(databaseControl.db.tableName,
+                databaseControl.create(
                         "URL, SavePath",
                         "'" + url + "', " + "'" + path + "'");
             }
