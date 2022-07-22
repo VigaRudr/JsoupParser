@@ -22,7 +22,19 @@ Using Java 18
 
 Using
 --------
+!App will create ./database folder
+
 execute - shaded.jar file using java with command and arguments (if necessary)
+
+to run any command write: java -jav .\JsoupParser-1.1-SNAPSHOT-shaded.jar command arguments
+
+Commands (also can use help):
+- `getKeywordCount(url, keyword)` - Search [keyword] in [url] and return 
+number of matches
+- `savePage(url, path)` - save webpage from [url] in the [path] folder 
+(if folder not specified, saves in ./savedPages folder)
+- `help` - show list of avaible commands
+- `aboutMe` - show app info
 
 Licensing
 ---------
