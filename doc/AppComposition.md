@@ -56,7 +56,8 @@ External classes of ControlWebsite function via command
 
 class DatabaseControl
 ---------------------
-Class for interacting with database using JDBC Driver
+
+Class for interacting with databese using JDBC Driver
 and SQLite DBMS
 
 - Database path: /database/JsoupParser.db
@@ -70,6 +71,7 @@ and SQLite DBMS
     ```
 
 Contains a Database object
+
 
 Methods (trows SQLException):
 
@@ -85,6 +87,7 @@ Methods (trows SQLException):
 `delete(String condition)`
 - delete from database (where [condition] if specified)
 
+
 ## Inner classes:
 
  `Database`
@@ -99,3 +102,4 @@ Methods (trows SQLException):
 ## class dbUpdate(String setParameter, String condition)
 ## class dbDelete(String condition)
 External classes of DatabaseControl function via command
+

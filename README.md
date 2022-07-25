@@ -25,6 +25,12 @@ Using
 !App will create ./database folder
 
 execute - shaded.jar file using java with command and arguments (if necessary)
+Commands:
+- `getKeywordCount(url, keyword)` - Search [keyword] in [url] and return 
+number of matches
+- `savePage(url)` - save webpage from [url] in the root folder
+- `help` - show list of avaible commands
+- `aboutMe` - show app info
 
 to run any command write: java -jav .\JsoupParser-1.1-SNAPSHOT-shaded.jar command arguments
 
