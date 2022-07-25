@@ -56,6 +56,7 @@ External classes of ControlWebsite function via command
 
 class DatabaseControl
 ---------------------
+
 Class for interacting with databese using JDBC Driver
 and SQLite DBMS
 
@@ -71,27 +72,34 @@ and SQLite DBMS
 
 Contains a Database object
 
-Methods:
 
-`send(String url, String keyword)`
-- send [url] and searching [keyword] in database
+Methods (trows SQLException):
 
-`updatePath(String path, String url)`
-- update empty data of saved file [path] in database
+`create(String columnNames, String values)`
+- send [values] of [columnNames] in database.
+
+`read(String readParameter, String condition)`
+- read [readParameter] from database (where [condition] if specified)
+
+`update(String setParameter, String condition)`
+- update [setParameter] in database where [condition]
 
 `delete(String condition)`
-- for future use 
-- delete row from database if [condition]
+- delete from database (where [condition] if specified)
 
-`clear()`
-- for future use
-- clear database
 
 ## Inner classes:
 
  `Database`
 - Database description
-- Stores tableName, path.
+- Stores tableName, path and number of records in current database.
 - Opens a database connection using JDBC
 - Creates statement for interact with database
 - Creates JsoupParserTable if not exists
+
+## class dbCreate(String columnNames, String values)
+## class dbRead(String readParameter, String condition)
+## class dbUpdate(String setParameter, String condition)
+## class dbDelete(String condition)
+External classes of DatabaseControl function via command
+
